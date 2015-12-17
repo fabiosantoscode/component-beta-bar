@@ -1,0 +1,55 @@
+@import "@economist/component-typography";
+@import "@economist/component-palette";
+@import "@economist/component-grid";
+@import "@economist/component-bar-wrapper";
+@import "@economist/component-link-button";
+
+.beta-bar a,
+.beta-bar a:visited {
+  border-bottom-color: var(--betabar-foreground-color, var(--color-thimphu));
+}
+
+.beta-bar {
+  background: var(--betabar-background-color, var(--color-lisbon, #5133B5));
+  color: var(--betabar-foreground-color, var(--color-thimphu));
+  fill: var(--betabar-foreground-color, var(--color-thimphu));
+  font-weight: bold;
+  overflow: hidden;
+}
+
+.beta-bar--container {
+  max-width: 1163px;
+}
+
+.beta-bar--message-first {
+  text-transform: uppercase;
+}
+
+.beta-bar--message-economist {
+  font-style: italic;
+}
+
+.beta-bar--feedback {
+  color: var(--betabar-background-color, var(--color-lisbon, #5133B5)) !important;
+  background: var(--betabar-foreground-color, var(--color-thimphu));
+  padding: var(--betabar-feedback-vertical-padding, var(--grid-spacing-hedgehog)) var(--betabar-feedback-horizontal-padding, var(--grid-spacing-sheep));
+  margin-right: var(--betabar-feedback-horizontal-margin, var(--grid-spacing-sheep));
+  font-size: 1em;
+  border-bottom: none;
+}
+
+.beta-bar--buttons-wrapper {
+  text-align: right;
+}
+
+@media screen and (min-width: 1163px) {
+  .beta-bar--buttons-wrapper {
+    float: right;
+    text-align: left;
+  }
+  .beta-bar--feedback {
+    margin-top: -var(--betabar-feedback-vertical-padding, var(--grid-spacing-hedgehog));
+    margin-bottom: -var(--betabar-feedback-vertical-padding, var(--grid-spacing-hedgehog));
+  }
+}
+
