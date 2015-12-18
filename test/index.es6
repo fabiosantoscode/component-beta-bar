@@ -79,7 +79,8 @@ describe('BetaBar component', () => {
       });
     });
     it('when state.wasDismissed, nothing is rendered', () => {
-      const component = new BetaBar({ }, { wasDismissed: true });
+      const component = new BetaBar({ });
+      component.state.wasDismissed = true;
       const element = component.render();
       element.props.className.should.equal('beta-bar__dismissed');
       element.type.should.equal('div');
