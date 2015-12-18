@@ -48,7 +48,7 @@ export default class BetaBar extends React.Component {
       </a>
     );
     return (
-      <BarWrapper className="beta-bar">
+      <BarWrapper className="beta-bar" classNamePrefix="beta-bar">
         {betaText}
         <div className="beta-bar--buttons-wrapper">
           {feedbackButton}
