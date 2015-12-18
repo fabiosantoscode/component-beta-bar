@@ -1,6 +1,5 @@
 /* global window document */
 import React from 'react';
-import reactCookie from 'react-cookie';
 import Icon from '@economist/component-icon';
 import LinkButton from '@economist/component-link-button';
 import BarWrapper from '@economist/component-bar-wrapper';
