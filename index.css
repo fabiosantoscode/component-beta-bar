@@ -39,6 +39,10 @@
   text-align: right;
 }
 
+.beta-bar--old-version {
+  margin-right: var(--betabar-spacing-from-close-button, var(--grid-spacing-sheep));
+}
+
 @media screen and (min-width: 1263px) {
   .beta-bar--buttons-wrapper {
     float: right;
