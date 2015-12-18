@@ -131,8 +131,7 @@
     "@economist/component-link-button": "^1.1.0",
     "@economist/component-palette": "^1.2.0",
     "@economist/component-typography": "^1.4.4",
-    "@economist/component-bar-wrapper": "^1.0.0",
-    "react-cookie": "^0.3.4"
+    "@economist/component-bar-wrapper": "^1.0.0"
   },
   "devDependencies": {
     "@economist/component-devpack": "^3.6.1",
