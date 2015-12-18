@@ -1,16 +1,16 @@
 {
-  "name": "@economist/component-cookie-message",
-  "version": "1.0.5",
-  "description": "Reusable cookie message component",
+  "name": "@economist/component-beta-bar",
+  "version": "1.0.0",
+  "description": "Beta bar",
   "author": "The Economist (http://economist.com)",
   "license": "ISC",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/economist-components/component-cookie-message.git"
+    "url": "git+https://github.com/economist-components/component-beta-bar.git"
   },
-  "homepage": "https://github.com/economist-components/component-cookie-message#readme",
+  "homepage": "https://github.com/economist-components/component-beta-bar#readme",
   "bugs": {
-    "url": "https://github.com/economist-components/component-cookie-message/issues"
+    "url": "https://github.com/economist-components/component-beta-bar/issues"
   },
   "main": "index.js",
   "files": [
