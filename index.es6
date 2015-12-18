@@ -1,6 +1,7 @@
 /* global window document */
 import React from 'react';
 import Icon from '@economist/component-icon';
+import reactCookie from 'react-cookie';
 import LinkButton from '@economist/component-link-button';
 import BarWrapper from '@economist/component-bar-wrapper';
 
@@ -24,35 +25,99 @@ const betaText = [
 const googleForm = 'https://docs.google.com/forms/d/1ZCdwituoyhHAPKjCKvDvzRp66zwOv23GrCPH4rGINrE/viewform';
 
 export default class BetaBar extends React.Component {
+  static propTypes = {
+    cookieName: React.PropTypes.string,
+    cookieValue: React.PropTypes.string,
+    closeCookieName: React.PropTypes.string,
+    closeCookieValue: React.PropTypes.string,
+    reactCookieInstance: React.PropTypes.shape({
+      save: React.PropTypes.func,
+    }),
+    onFallback: React.PropTypes.func,
+  }
+  static defaultProps = {
+    cookieName: 'ec_blogsab',
+    cookieValue: 'b',
+    closeCookieName: 'ec_rvmp_beta_close',
+    closeCookieValue: 'x',
+    reactCookieInstance: reactCookie,
+  }
+  getInitialState() {
+    return {
+      wasDismissed: false,
+    };
+  }
   constructor(...args) {
     super(...args);
-    this.handleOldVersion = this.handleOldVersion.bind(this);
+    this.handleFallback = this.handleFallback.bind(this);
+    this.handleDismiss = this.handleDismiss.bind(this);
+    if (!this.state) {
+      this.state = {};
+    }
   }
-  handleOldVersion(ev) {
-    // TODO
-    ev.preventDefault();
+  handleFallback(event) {
+    if (typeof window === 'undefined' || typeof location === 'undefined') { return; }
+    const { cookieName, cookieValue, reactCookieInstance } = this.props;
+
+    if (cookieName && cookieValue && reactCookieInstance) {
+      reactCookieInstance.save(cookieName, cookieValue)
+      if (this.props.onFallback) {
+        this.props.onFallback();
+      }
+    }
+
+    if (event) {
+      event.preventDefault();
+    }
+  }
+  handleDismiss(event) {
+    const { closeCookieName, closeCookieValue, reactCookieInstance } = this.props;
+
+    if (closeCookieName && closeCookieValue && reactCookieInstance) {
+      reactCookieInstance.save(closeCookieName, closeCookieValue)
+    }
+
+    this.setState({ wasDismissed: true });
+
+    if (event) {
+      event.preventDefault();
+    }
+  }
+  componentWillMount() {
+    if (typeof window === 'undefined') { return; }
+    const { closeCookieName, closeCookieValue, reactCookieInstance } = this.props;
+    if (closeCookieName && closeCookieValue && reactCookieInstance) {
+      this.setState({
+        wasDismissed: reactCookieInstance.load(this.props.closeCookieName) === this.props.closeCookieValue,
+      });
+    }
   }
   render() {
+    if (this.state && this.state.wasDismissed) {
+      return (
+        <div className="beta-bar__dismissed"></div>
+      );
+    }
     const feedbackButton = (
       <LinkButton className="beta-bar--feedback" href={googleForm}>
         Leave feedback
       </LinkButton>
     );
-    const oldVersionButton = (
+    const fallbackButton = (
       <a
         className="beta-bar--old-version"
         href="#"
-        onClick={this.handleOldVersion}
+        onClick={this.handleFallback}
       >
         Back to old version
       </a>
     );
     return (
-      <BarWrapper className="beta-bar" classNamePrefix="beta-bar">
+      <BarWrapper className="beta-bar" classNamePrefix="beta-bar" onClose={this.handleDismiss}>
         {betaText}
         <div className="beta-bar--buttons-wrapper">
           {feedbackButton}
-          {oldVersionButton}
+          {fallbackButton}
         </div>
       </BarWrapper>
     );
