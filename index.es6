@@ -42,11 +42,6 @@ export default class BetaBar extends React.Component {
     closeCookieValue: 'x',
     reactCookieInstance: reactCookie,
   }
-  getInitialState() {
-    return {
-      wasDismissed: false,
-    };
-  }
   constructor(...args) {
     super(...args);
     this.handleFallback = this.handleFallback.bind(this);
