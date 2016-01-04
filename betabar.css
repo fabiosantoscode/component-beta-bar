@@ -28,7 +28,7 @@
 }
 
 .beta-bar--feedback {
-  color: var(--betabar-background-color, var(--color-lisbon, #5133B5)) !important;
+  color: var(--betabar-background-color, var(--color-lisbon, #5133B5));
   background: var(--betabar-foreground-color, var(--color-thimphu));
   padding: var(--betabar-feedback-vertical-padding, var(--grid-spacing-hedgehog)) var(--betabar-feedback-horizontal-padding, var(--grid-spacing-sheep));
   font-size: 1em;
