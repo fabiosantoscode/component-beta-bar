@@ -96,7 +96,7 @@ export default class BetaBar extends React.Component {
       );
     }
     const feedbackButton = (
-      <LinkButton className="beta-bar--feedback" href={googleForm}>
+      <LinkButton className="beta-bar--feedback" href={googleForm} target="_blank">
         Leave feedback
       </LinkButton>
     );
