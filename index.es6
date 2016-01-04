@@ -51,7 +51,7 @@ export default class BetaBar extends React.Component {
     }
   }
   handleFallback(event) {
-    if (typeof window === 'undefined' || typeof location === 'undefined') { return; }
+    if (typeof window === 'undefined') { return; }
     const { cookieName, cookieValue, reactCookieInstance } = this.props;
 
     if (cookieName && cookieValue && reactCookieInstance) {
