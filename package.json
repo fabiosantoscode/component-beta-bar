@@ -130,7 +130,7 @@
     "@economist/component-grid": "^1.3.0",
     "@economist/component-icon": "^3.6.4",
     "@economist/component-link-button": "^1.1.0",
-    "@economist/component-palette": "^1.2.0",
+    "@economist/component-palette": "^1.4.0",
     "@economist/component-typography": "^1.4.4",
     "react-cookie": "^0.4.3"
   },
