@@ -12,7 +12,7 @@
 }
 
 .beta-bar {
-  background: var(--betabar-background-color, var(--color-lisbon, #5133B5));
+  background: var(--betabar-background-color, var(--betabar-text-color, var(--color-chicago)));
   color: var(--betabar-foreground-color, var(--color-thimphu));
   fill: var(--betabar-foreground-color, var(--color-thimphu));
   font-weight: bold;
@@ -28,7 +28,7 @@
 }
 
 .beta-bar--feedback {
-  color: var(--betabar-background-color, var(--color-lisbon, #5133B5)) !important;
+  color: var(--betabar-background-color, var(--betabar-text-color, var(--color-chicago)));
   background: var(--betabar-foreground-color, var(--color-thimphu));
   padding: var(--betabar-feedback-vertical-padding, var(--grid-spacing-hedgehog)) var(--betabar-feedback-horizontal-padding, var(--grid-spacing-sheep));
   font-size: 1em;
