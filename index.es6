@@ -37,7 +37,7 @@ export default class BetaBar extends React.Component {
   }
   static defaultProps = {
     cookieName: 'ec_blogsab',
-    cookieValue: 'b',
+    cookieValue: 'a',
     closeCookieName: 'ec_rvmp_beta_close',
     closeCookieValue: 'x',
     reactCookieInstance: reactCookie,
