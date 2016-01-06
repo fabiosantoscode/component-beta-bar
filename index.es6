@@ -8,11 +8,11 @@ import BarWrapper from '@economist/component-bar-wrapper';
 const betaText = [
   (
     <span key="1" className="beta-bar--message-first">
-      You're viewing a beta release of
+      You’re viewing a beta release of
       <span className="beta-bar--message-economist">
-        {" The Economist"}
+        {" The Economist’"}
       </span>
-      's new website
+      s new website
     </span>
   ),
   (

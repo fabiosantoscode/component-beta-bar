@@ -41,26 +41,29 @@
 
 .beta-bar--buttons-wrapper {
   margin-top: var(--betabar-buttons-vertical-spacing, var(--grid-spacing-sheep));
-  text-align: right;
+  text-align: left;
 }
 
-@media (--betabar-viewport-buttons-side-by-side) {
+.beta-bar--old-version {
+  float: right;
+}
+
+@media (--betabar-viewport-buttons-together) {
   .beta-bar--old-version {
-    float: right;
+    float: none;
   }
-  .beta-bar--buttons-wrapper {
-    text-align: left;
+}
+
+@media (--betabar-viewport-stacked) {
+  .beta-bar {
+    line-height: var(--betabar-mobile-line-height, calc(var(--text-line-height-body-on-step--2) + var(--extra-line-height-on-mobile, 0.2em)));
   }
 }
 
 @media (--betabar-viewport-non-stacked) {
   .beta-bar--buttons-wrapper {
     float: right;
-    text-align: left;
     margin-top: 0;  /* Removing vertical padding */
-  }
-  .beta-bar--feedback {
-    float: none;
   }
   .beta-bar--old-version {
     margin-right: var(--betabar-spacing-from-close-button, var(--grid-spacing-sheep));
