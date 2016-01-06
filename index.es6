@@ -57,6 +57,7 @@ export default class BetaBar extends React.Component {
     if (cookieName && cookieValue && reactCookieInstance) {
       reactCookieInstance.save(cookieName, cookieValue, {
         maxAge: 30 * 24 * 60 * 60,
+        path: '/',
       });
       if (this.props.onFallback) {
         this.props.onFallback();
