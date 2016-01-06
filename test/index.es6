@@ -31,7 +31,10 @@ describe('BetaBar component', () => {
       reactCookieInstance.save.lastCall.args.should.eql([
         'foo',
         'bar',
-        { maxAge: 30 * 24 * 60 * 60, },
+        {
+          maxAge: 30 * 24 * 60 * 60,
+          path: '/',
+        },
       ]);
     });
     it('calls props.onFallback', () => {
