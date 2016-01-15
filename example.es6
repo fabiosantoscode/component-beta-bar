@@ -1,5 +1,21 @@
 import React from 'react';
 import BetaBar from './';
+import LinkButton from '@economist/component-link-button';
+/* eslint-disable id-match */
+/* eslint-disable  react/display-name */
+import { createI13nNode } from 'react-i13n';
+
+const I13nFeedbackLink = createI13nNode(LinkButton, {
+  isLeafNode: true,
+  bindClickEvent: true,
+  follow: true,
+});
+
+const I13nFallbackLink = createI13nNode('a', {
+  isLeafNode: true,
+  bindClickEvent: true,
+  follow: true,
+});
 
 // this ensures the cookie is never written
 const fakeCookie = {
@@ -7,5 +23,23 @@ const fakeCookie = {
   save: () => {},
 };
 export default (
-  <BetaBar reactCookieInstance={fakeCookie}/>
+  <div>
+    <BetaBar reactCookieInstance={fakeCookie}/>
+    <p>Tracked version</p>
+    <BetaBar reactCookieInstance={fakeCookie}
+      renderFeedbackLink={(props) => <I13nFeedbackLink
+        i13nModel={{
+          action: 'click',
+          element: 'Feedback link',
+        }}
+        {...props}
+                                     />}
+      renderFallbackLink={(props) => <I13nFallbackLink i13nModel={{
+        action: 'click',
+        element: 'Fallback version link',
+      }}
+        {...props}
+                                     />}
+    />
+  </div>
 );

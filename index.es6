@@ -96,19 +96,15 @@ export default class BetaBar extends React.Component {
         <div className="beta-bar__dismissed"></div>
       );
     }
-    const feedbackButton = (
-      <LinkButton className="beta-bar--feedback" href={googleForm} target="_blank">
-        Leave feedback
-      </LinkButton>
+
+    const feedbackButtonProps = { className: "beta-bar--feedback", href: googleForm, target: "_blank", children: 'Leave feedback' }
+    const feedbackButton = this.props.renderFeedbackLink ? this.props.renderFeedbackLink(feedbackButtonProps) : (
+      <LinkButton {...feedbackButtonProps}></LinkButton>
     );
-    const fallbackButton = (
-      <a
-        className="beta-bar--old-version"
-        href="#"
-        onClick={this.handleFallback}
-      >
-        Back to old version
-      </a>
+
+    const fallbackButtonProps = { className: "beta-bar--old-version", href: "#", onClick: this.handleFallback, children: 'Back to old version' }
+    const fallbackButton = this.props.renderFallbackLink ? this.props.renderFallbackLink(fallbackButtonProps) : (
+      <a {...fallbackButtonProps}></a>
     );
     return (
       <BarWrapper className="beta-bar" classNamePrefix="beta-bar" onClose={this.handleDismiss}>
