@@ -92,10 +92,9 @@ export default class BetaBar extends React.Component {
     }
   }
   render() {
+    let classNames = [ 'beta-bar' ];
     if (this.state && this.state.wasDismissed) {
-      return (
-        <div className="beta-bar__dismissed"></div>
-      );
+      classNames = classNames.concat([ 'beta-bar--dismissed' ]);
     }
 
     const feedbackButtonProps = { className: "beta-bar--feedback", href: googleForm, target: "_blank", children: 'Leave feedback' }
@@ -107,8 +106,11 @@ export default class BetaBar extends React.Component {
     const fallbackButton = this.props.renderFallbackLink ? this.props.renderFallbackLink(fallbackButtonProps) : (
       <a {...fallbackButtonProps}></a>
     );
+
+    const displayCloseButton = !(this.state && this.state.wasDismissed);
+
     return (
-      <BarWrapper className="beta-bar" classNamePrefix="beta-bar" onClose={this.handleDismiss} stillRenderWhenClosed={this.props.stillRenderWhenClosed}>
+      <BarWrapper className={classNames.join(' ')} classNamePrefix="beta-bar" onClose={this.handleDismiss} close={displayCloseButton}>
         {betaText}
         <div className="beta-bar--buttons-wrapper">
           {feedbackButton}
