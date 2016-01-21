@@ -34,6 +34,7 @@ export default class BetaBar extends React.Component {
       save: React.PropTypes.func,
     }),
     onFallback: React.PropTypes.func,
+    stillRenderWhenClosed: React.PropTypes.bool,
   }
   static defaultProps = {
     cookieName: 'ec_blogsab',
@@ -107,7 +108,7 @@ export default class BetaBar extends React.Component {
       <a {...fallbackButtonProps}></a>
     );
     return (
-      <BarWrapper className="beta-bar" classNamePrefix="beta-bar" onClose={this.handleDismiss}>
+      <BarWrapper className="beta-bar" classNamePrefix="beta-bar" onClose={this.handleDismiss} stillRenderWhenClosed={this.props.stillRenderWhenClosed}>
         {betaText}
         <div className="beta-bar--buttons-wrapper">
           {feedbackButton}
