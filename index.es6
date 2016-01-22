@@ -110,7 +110,7 @@ export default class BetaBar extends React.Component {
     const displayCloseButton = !(this.state && this.state.wasDismissed);
 
     return (
-      <BarWrapper className={classNames.join(' ')} classNamePrefix="beta-bar" onClose={this.handleDismiss} close={displayCloseButton}>
+      <BarWrapper className={classNames.join(' ')} classNamePrefix="beta-bar" onClose={this.handleDismiss} close={displayCloseButton} stillRenderWhenClosed={this.props.stillRenderWhenClosed}>
         {betaText}
         <div className="beta-bar--buttons-wrapper">
           {feedbackButton}
