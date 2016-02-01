@@ -86,7 +86,7 @@ describe('BetaBar component', () => {
       component.state.wasDismissed = true;
       const element = component.render();
       element.props.className.should.equal('beta-bar beta-bar--dismissed');
-      element.type.should.equal('div');
+      element.type.should.equal(BarWrapper);
     });
   });
 });
