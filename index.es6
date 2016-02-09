@@ -26,6 +26,7 @@ const googleForm = 'https://docs.google.com/forms/d/1ZCdwituoyhHAPKjCKvDvzRp66zw
 
 export default class BetaBar extends React.Component {
   static propTypes = {
+    className: React.PropTypes.string,
     cookieName: React.PropTypes.string,
     cookieValue: React.PropTypes.string,
     closeCookieName: React.PropTypes.string,
@@ -95,6 +96,10 @@ export default class BetaBar extends React.Component {
     let classNames = [ 'beta-bar' ];
     if (this.state && this.state.wasDismissed) {
       classNames = classNames.concat([ 'beta-bar--dismissed' ]);
+    }
+
+    if (this.props.className) {
+      classNames = classNames.concat([ this.props.className ]);
     }
 
     const feedbackButtonProps = { className: "beta-bar--feedback", href: googleForm, target: "_blank", children: 'Leave feedback' }
