@@ -5,23 +5,6 @@ import reactCookie from 'react-cookie';
 import LinkButton from '@economist/component-link-button';
 import BarWrapper from '@economist/component-bar-wrapper';
 
-const betaText = [
-  (
-    <span key="1" className="beta-bar--message-first">
-      You’re viewing a beta release of
-      <span className="beta-bar--message-economist">
-        {" The Economist’"}
-      </span>
-      s new website
-    </span>
-  ),
-  (
-    <span key="2" className="beta-bar--message-second">
-      {' We would like to hear what you think'}
-    </span>
-  ),
-];
-
 const googleForm = 'https://docs.google.com/forms/d/1ZCdwituoyhHAPKjCKvDvzRp66zwOv23GrCPH4rGINrE/viewform';
 
 export default class BetaBar extends React.Component {
@@ -116,7 +99,11 @@ export default class BetaBar extends React.Component {
 
     return (
       <BarWrapper className={classNames.join(' ')} classNamePrefix="beta-bar" onClose={this.handleDismiss} close={displayCloseButton} stillRenderWhenClosed={this.props.stillRenderWhenClosed}>
-        {betaText}
+        You are viewing a beta release of
+        <span className="beta-bar--message-economist">
+          {" The Economist "}
+        </span>
+        website. Please tell us what you think.
         <div className="beta-bar--buttons-wrapper">
           {feedbackButton}
           {fallbackButton}

@@ -18,10 +18,6 @@
   overflow: hidden;
 }
 
-.beta-bar--message-first {
-  text-transform: uppercase;
-}
-
 .beta-bar--message-economist {
   font-style: italic;
 }
