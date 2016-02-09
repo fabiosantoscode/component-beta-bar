@@ -1,4 +1,3 @@
-@import "@economist/component-typography";
 @import "@economist/component-palette";
 @import "@economist/component-grid";
 @import "@economist/component-bar-wrapper";
@@ -17,10 +16,6 @@
   fill: var(--betabar-foreground-color, var(--color-thimphu));
   font-weight: bold;
   overflow: hidden;
-}
-
-.beta-bar--message-first {
-  text-transform: uppercase;
 }
 
 .beta-bar--message-economist {
