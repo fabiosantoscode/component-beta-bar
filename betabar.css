@@ -9,6 +9,10 @@
   text-decoration: none;
   border-bottom: 1px solid var(--betabar-foreground-color, var(--color-thimphu));
 }
+.beta-bar--old-version:hover {
+  color: var(--betabar-old-version-hover, var(--color-boston));
+  border-bottom: none;
+}
 
 .beta-bar {
   background: var(--betabar-background-color, var(--betabar-text-color, var(--color-chicago)));
@@ -32,6 +36,14 @@
     var(--betabar-feedback-horizontal-margin, var(--grid-spacing-sheep))
     -var(--betabar-feedback-vertical-padding, var(--grid-spacing-hedgehog))
     0;
+}
+
+.beta-bar--feedback:hover {
+  background: var(--betabar-feedback-hover, var(--color-boston));
+}
+
+.beta-bar--close-wrapper:hover svg {
+  fill: var(--betabar-close-hover, var(--color-boston));
 }
 
 .beta-bar--buttons-wrapper {
