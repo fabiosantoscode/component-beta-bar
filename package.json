@@ -100,7 +100,7 @@
   },
   "config": {
     "lint_opts": "--ignore-path .gitignore --ext .es6",
-    "testbundle_opts": "-r react -r .:./index.es6 -r ./example.js:example ./test/index.js -o testbundle.js",
+    "testbundle_opts": "node_modules/babel-core/polyfill.js -r react -r .:./index.es6 -r ./example.js:example ./test/index.js -o testbundle.js",
     "ghpages_files": "*.html *.css *.js assets/"
   },
   "scripts": {
@@ -135,6 +135,7 @@
   "devDependencies": {
     "@economist/component-devpack": "^3.6.1",
     "babel": "^5.8.23",
+    "babel-core": "^6.5.1",
     "babelify": "^6.3.0",
     "browser-sync": "^2.8.2",
     "browserify": "^11.0.1",
