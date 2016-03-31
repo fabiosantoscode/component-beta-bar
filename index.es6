@@ -18,6 +18,7 @@ export default class BetaBar extends React.Component {
       save: React.PropTypes.func,
     }),
     onFallback: React.PropTypes.func,
+    alwaysHideCloseButton: React.PropTypes.bool,
     stillRenderWhenClosed: React.PropTypes.bool,
   }
   static defaultProps = {
@@ -95,7 +96,8 @@ export default class BetaBar extends React.Component {
       <a {...fallbackButtonProps}></a>
     );
 
-    const displayCloseButton = !(this.state && this.state.wasDismissed);
+    const displayCloseButton = !(this.state && this.state.wasDismissed) &&
+      (this.props.alwaysHideCloseButton !== true);
 
     return (
       <BarWrapper className={classNames.join(' ')} classNamePrefix="beta-bar" onClose={this.handleDismiss} close={displayCloseButton} stillRenderWhenClosed={this.props.stillRenderWhenClosed}>
