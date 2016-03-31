@@ -25,9 +25,6 @@ exec docker run \
         npm i && \
         npm run doc:js && \
         SAUCE_USERNAME=${SAUCE_USERNAME} SAUCE_ACCESS_KEY=${SAUCE_ACCESS_KEY} npm t && \
-        npm config delete registry && \
-        npm config delete @economist:registry && \
-        npm publish && \
         { git config --global user.email 'ecprod@economist.com'; git config --global user.name 'GoCD'; true; } && \
         { [ \"$(git rev-parse --abbrev-ref HEAD)\" != \"master\" ] || npm run pages; } ; \
         RETURN_CODE=\$?; \
