@@ -34,10 +34,12 @@ export default (
         }}
         {...props}
                                      />}
+      /* eslint-disable react/no-multi-comp */
       renderFallbackLink={(props) => <I13nFallbackLink i13nModel={{
         action: 'click',
         element: 'Fallback version link',
       }}
+      /* eslint-enable react/no-multi-comp */
         {...props}
                                      />}
     />

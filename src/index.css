@@ -1,5 +1,4 @@
+@import './betabar.css';
 @custom-media --betabar-viewport-non-stacked (width >= 859px);
 @custom-media --betabar-viewport-stacked (width <= 858px);
 @custom-media --betabar-viewport-buttons-together (width >= 500px);
-
-@import './betabar.css';
