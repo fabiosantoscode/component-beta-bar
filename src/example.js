@@ -10,38 +10,45 @@ const I13nFeedbackLink = createI13nNode(LinkButton, {
   bindClickEvent: true,
   follow: true,
 });
-
 const I13nFallbackLink = createI13nNode('a', {
   isLeafNode: true,
   bindClickEvent: true,
   follow: true,
 });
-
-// this ensures the cookie is never written
-const fakeCookie = {
-  load: () => {},
-  save: () => {},
-};
-export default (
-  <div>
-    <BetaBar reactCookieInstance={fakeCookie}/>
-    <p>Tracked version</p>
-    <BetaBar reactCookieInstance={fakeCookie}
-      renderFeedbackLink={(props) => <I13nFeedbackLink
-        i13nModel={{
-          action: 'click',
-          element: 'Feedback link',
-        }}
-        {...props}
-                                     />}
-      /* eslint-disable react/no-multi-comp */
-      renderFallbackLink={(props) => <I13nFallbackLink i13nModel={{
+function renderFeedbackLink(props) {
+  return (
+    <I13nFeedbackLink
+      i13nModel={{
+        action: 'click',
+        element: 'Feedback link',
+      }}
+      {...props}
+    />);
+}
+function renderFallbackLink(props) {
+  return (
+    <I13nFallbackLink
+      i13nModel={{
         action: 'click',
         element: 'Fallback version link',
       }}
-      /* eslint-enable react/no-multi-comp */
-        {...props}
-                                     />}
+      {...props}
+    />
+  );
+}
+
+// this ensures the cookie is never written
+const fakeCookie = {
+  load: () => {}, // eslint-disable-line no-empty-function
+  save: () => {}, // eslint-disable-line no-empty-function
+};
+export default (
+  <div>
+    <BetaBar reactCookieInstance={fakeCookie} />
+    <p>Tracked version</p>
+    <BetaBar reactCookieInstance={fakeCookie}
+      renderFeedbackLink={renderFeedbackLink}
+      renderFallbackLink={renderFallbackLink}
     />
   </div>
 );

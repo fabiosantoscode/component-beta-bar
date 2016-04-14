@@ -23,7 +23,7 @@ describe('BetaBar component', () => {
   });
   it('renders a React element', () => {
     React.isValidElement(
-      <BetaBar/>
+      <BetaBar />
     ).should.equal(true);
   });
   describe('handleFallback', () => {
@@ -75,7 +75,12 @@ describe('BetaBar component', () => {
       });
     });
     it('this cookie sets state.wasDismissed', () => {
-      reactCookieInstance.load = chai.spy((...args) => args.indexOf('foo-close') !== -1 ? 'bar-close' : null);
+      reactCookieInstance.load = chai.spy((...args) => {
+        if (args.indexOf('foo-close') !== -1) {
+          return 'bar-close';
+        }
+        return null;
+      });
       const component = new BetaBar({
         closeCookieName: 'foo-close',
         closeCookieValue: 'bar-close',

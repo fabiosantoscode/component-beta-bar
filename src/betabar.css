@@ -1,8 +1,3 @@
-@import '@economist/component-palette';
-@import '@economist/component-grid';
-@import '@economist/component-bar-wrapper';
-@import '@economist/component-link-button';
-
 .beta-bar--old-version,
 .beta-bar--old-version:visited {
   color: inherit;
@@ -90,4 +85,3 @@
     margin-right: var(--betabar-spacing-from-close-button, var(--grid-spacing-sheep));
   }
 }
-
