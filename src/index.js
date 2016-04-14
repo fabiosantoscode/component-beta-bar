@@ -4,11 +4,7 @@ import LinkButton from '@economist/component-link-button';
 import BarWrapper from '@economist/component-bar-wrapper';
 
 const googleForm = 'https://docs.google.com/forms/d/1ZCdwituoyhHAPKjCKvDvzRp66zwOv23GrCPH4rGINrE/viewform';
-const thirtyDays = 30;
-const twentyFourHours = 24;
-const sixtyMinutes = 60;
-const sixtySeconds = 60;
-const oneMonthInSeconds = thirtyDays * twentyFourHours * sixtyMinutes * sixtySeconds;
+const oneMonthInSeconds = 2592000;
 export default class BetaBar extends React.Component {
   static get propTypes() {
     return {
