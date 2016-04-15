@@ -4,6 +4,7 @@ import LinkButton from '@economist/component-link-button';
 import BarWrapper from '@economist/component-bar-wrapper';
 
 const googleForm = 'https://docs.google.com/forms/d/1ZCdwituoyhHAPKjCKvDvzRp66zwOv23GrCPH4rGINrE/viewform';
+const oneMonthInSeconds = 2592000;
 export default class BetaBar extends React.Component {
   static get propTypes() {
     return {
@@ -69,7 +70,7 @@ export default class BetaBar extends React.Component {
     const { cookieName, cookieValue, reactCookieInstance } = this.props;
     if (cookieName && cookieValue && reactCookieInstance) {
       reactCookieInstance.save(cookieName, cookieValue, {
-        maxAge: 30 * 24 * 60 * 60,
+        maxAge: oneMonthInSeconds,
         path: '/',
       });
       if (this.props.onFallback) {
@@ -97,7 +98,7 @@ export default class BetaBar extends React.Component {
       children: 'Leave feedback',
     };
     const feedbackButton = this.props.renderFeedbackLink ? this.props.renderFeedbackLink(feedbackButtonProps) : (
-      <LinkButton {...feedbackButtonProps}/>
+      <LinkButton {...feedbackButtonProps} />
     );
 
     const fallbackButtonProps = {
