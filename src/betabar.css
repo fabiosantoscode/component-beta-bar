@@ -29,10 +29,8 @@
     -var(--betabar-feedback-vertical-padding, var(--grid-spacing-hedgehog))
     0;
   padding:
-    var(
-      --betabar-feedback-vertical-padding,
-      var(--grid-spacing-hedgehog)
-    ) var(--betabar-feedback-horizontal-padding, var(--grid-spacing-sheep));
+    var(--betabar-feedback-vertical-padding, var(--grid-spacing-hedgehog))
+    var(--betabar-feedback-horizontal-padding, var(--grid-spacing-sheep));
   color: var(--betabar-background-color, var(--betabar-text-color, var(--color-chicago)));
   font-size: 1em;
   background: var(--betabar-foreground-color, var(--color-thimphu));
@@ -69,9 +67,7 @@
     line-height:
       var(
         --betabar-mobile-line-height,
-        calc(
-          var(--text-line-height-sans-on-step--2) + var(--extra-line-height-on-mobile, 0.2em)
-        )
+        calc(var(--text-line-height-sans-on-step--2) + var(--extra-line-height-on-mobile, 0.2em))
       );
   }
 }
