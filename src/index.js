@@ -19,8 +19,8 @@ export default class BetaBar extends React.Component {
       onFallback: React.PropTypes.func,
       alwaysHideCloseButton: React.PropTypes.bool,
       stillRenderWhenClosed: React.PropTypes.bool,
-      renderFeedbackLink: React.PropTypes.bool,
-      renderFallbackLink: React.PropTypes.bool,
+      renderFeedbackLink: React.PropTypes.func,
+      renderFallbackLink: React.PropTypes.func,
     };
   }
   static get defaultProps() {
